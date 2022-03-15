@@ -15,12 +15,31 @@ const q =
     }
   }
 
-/** Queue */
+/**
+ * Queue.
+ *
+ * All queue functions are also throttled to once per invocation.
+ */
 export const queue = {
-  /** Decorate function with `requestAnimationFrame`. */
+  /**
+   * Decorate function with `requestAnimationFrame`.
+   * ```ts
+   * queue.raf(cb)
+   * ```
+   */
   raf: q(requestAnimationFrame),
-  /** Decorate function with `setTimeout`. */
+  /**
+   * Decorate function with `setTimeout`.
+   * ```ts
+   * queue.time(cb)
+   * ```
+   */
   time: q(setTimeout),
-  /** Decorate function with `queueMicrotask`. */
+  /**
+   * Decorate function with `queueMicrotask`.
+   * ```ts
+   * queue.task(cb)
+   * ```
+   */
   task: q(queueMicrotask),
 }

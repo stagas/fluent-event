@@ -1,7 +1,7 @@
 <h1 align="center">fluent-event</h1>
 
 <p align="center">
-fluent dom event handler factory
+fluent dom event toolkit
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@ fluent dom event handler factory
  · <a href="https://github.com/stagas/fluent-event/issues">   🖐️ <strong>Help</strong></a>
 </p>
 
-***
+---
 
 ## Install
 
@@ -27,19 +27,19 @@ $ npm i fluent-event
 
 #### Table of Contents
 
-*   [debounce](#debounce)
-*   [event](#event)
-*   [on](#on)
-*   [off](#off)
-    *   [Parameters](#parameters)
-*   [queue](#queue)
-    *   [raf](#raf)
-    *   [time](#time)
-    *   [task](#task)
+- [debounce](#debounce)
+- [event](#event)
+- [on](#on)
+- [off](#off)
+  - [Parameters](#parameters)
+- [queue](#queue)
+  - [raf](#raf)
+  - [time](#time)
+  - [task](#task)
 
 ### debounce
 
-[src/debounce.ts:21-44](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/debounce.ts#L21-L44 "Source code on GitHub")
+[src/debounce.ts:21-44](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/debounce.ts#L21-L44 'Source code on GitHub')
 
 Decorate function `fn` with debounce delay `ms`.
 
@@ -60,15 +60,15 @@ cb(2)
 
 ### event
 
-[src/event.ts:23-33](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/event.ts#L23-L33 "Source code on GitHub")
+[src/event.ts:23-33](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/event.ts#L23-L33 'Source code on GitHub')
 
 Decorates event listener `fn`.
 
 Flags:
 
-*   `prevent` => `event.preventDefault()`
-*   `stop` => `event.stopPropagation()`
-*   `stop.immediate` => `event.stopImmediatePropagation()`
+- `prevent` => `event.preventDefault()`
+- `stop` => `event.stopPropagation()`
+- `stop.immediate` => `event.stopImmediatePropagation()`
 
 ```ts
 btn.onclick = event(fn)
@@ -79,7 +79,7 @@ btn.onclick = event.stop.immediate(fn)
 
 ### on
 
-[src/on.ts:40-44](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/on.ts#L40-L44 "Source code on GitHub")
+[src/on.ts:40-44](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/on.ts#L40-L44 'Source code on GitHub')
 
 Adds a DOM event `listener` to an event `type` using `options` and returns its remover.
 
@@ -97,38 +97,38 @@ off() // remove listener
 
 ### off
 
-[src/on.ts:49-54](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/on.ts#L49-L54 "Source code on GitHub")
+[src/on.ts:49-54](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/on.ts#L49-L54 'Source code on GitHub')
 
 Removes an event `listener` of type `type` from `el` using `options`.
 
 #### Parameters
 
-*   `el` **T**&#x20;
-*   `type` **K**&#x20;
-*   `listener` **function (ev: any): any**&#x20;
-*   `options` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | AddEventListenerOptions)?**&#x20;
+- `el` **T**&#x20;
+- `type` **K**&#x20;
+- `listener` **function (ev: any): any**&#x20;
+- `options` **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean) | AddEventListenerOptions)?**&#x20;
 
 ### queue
 
-[src/queue.ts:19-26](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L19-L26 "Source code on GitHub")
+[src/queue.ts:19-26](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L19-L26 'Source code on GitHub')
 
 Queue
 
 #### raf
 
-[src/queue.ts:21-21](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L21-L21 "Source code on GitHub")
+[src/queue.ts:21-21](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L21-L21 'Source code on GitHub')
 
 Decorate function with `requestAnimationFrame`.
 
 #### time
 
-[src/queue.ts:23-23](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L23-L23 "Source code on GitHub")
+[src/queue.ts:23-23](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L23-L23 'Source code on GitHub')
 
 Decorate function with `setTimeout`.
 
 #### task
 
-[src/queue.ts:25-25](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L25-L25 "Source code on GitHub")
+[src/queue.ts:25-25](https://github.com/stagas/fluent-event/blob/0af41bcb3e1e231920245accba69433ed3825a50/src/queue.ts#L25-L25 'Source code on GitHub')
 
 Decorate function with `queueMicrotask`.
 

@@ -3,7 +3,7 @@
   "author": "stagas",
   "short": "stagas/fluent-event",
   "description": "fluent dom event toolkit",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -59,7 +59,7 @@
     "start:https": "vite-open --https example/web.ts",
     "build:watch": "tsc -p tsconfig.dist.json --outDir dist/esm --module esnext --watch & tsc -p tsconfig.dist.json --outDir dist/cjs --watch",
     "cov:watch": "jest --coverage --watchAll",
-    "test": "npm run test:node && npm run test:web",
+    "test": "npm run test:node",
     "test:node": "jest",
     "test:web": "web-test-runner",
     "cov": "jest --coverage",

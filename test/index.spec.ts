@@ -102,6 +102,48 @@ describe('all', () => {
       expect(count).toEqual(1)
     })
 
+    it('raf multiple times', async () => {
+      let count = 0
+      const cb = queue.raf(() => count++)
+      cb()
+      cb()
+      cb()
+      cb()
+      expect(count).toEqual(0)
+      const results: any = []
+      await new Promise(resolve => {
+        requestAnimationFrame(() => {
+          results.push(count)
+          requestAnimationFrame(resolve)
+        })
+      })
+      results.push(count)
+      expect(count).toEqual(2)
+      expect(results).toMatchSnapshot()
+    })
+
+    it('raf last first and last args win', async () => {
+      let value: any
+      const cb = queue.raf(x => {
+        value = x
+      })
+      cb(1)
+      cb(2)
+      cb(3)
+      cb(4)
+      expect(value).toBeUndefined()
+      const results: any = []
+      await new Promise(resolve => {
+        requestAnimationFrame(() => {
+          results.push(value)
+          requestAnimationFrame(resolve)
+        })
+      })
+      results.push(value)
+      expect(value).toBe(4)
+      expect(results).toMatchSnapshot()
+    })
+
     it('time', async () => {
       let count = 0
       const cb = queue.time(() => count++)

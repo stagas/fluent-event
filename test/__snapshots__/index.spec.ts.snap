@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`all queue(fn) raf last first and last args win 1`] = `
+Array [
+  1,
+  4,
+]
+`;
+
+exports[`all queue(fn) raf multiple times 1`] = `
+Array [
+  1,
+  2,
+]
+`;

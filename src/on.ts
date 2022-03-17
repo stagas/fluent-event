@@ -25,7 +25,7 @@ function onEvent<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
 /**
  * Adds a DOM event `listener` to an event `type` using `options` and returns its remover.
  *
- * Flags: `capture` | `once` | `passive`
+ * Flags: `active` | `capture` | `once` | `passive`
  *
  * ```ts
  * on(btn, 'click', fn)
@@ -37,10 +37,14 @@ function onEvent<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
  * off() // remove listener
  * ```
  */
-export const on = FluentFlags<'capture' | 'once' | 'passive'>()(
+export const on = FluentFlags<'active' | 'capture' | 'once' | 'passive'>()(
   flags =>
     ((el: any, type: any, fn: any, options: any = {}) =>
-      onEvent.call(this, el, type, fn, { ...flags, ...options })) as typeof onEvent
+      onEvent(el, type, fn, {
+        ...(flags.active ? { passive: false } : null),
+        ...flags,
+        ...options,
+      })) as typeof onEvent
 )
 
 /**

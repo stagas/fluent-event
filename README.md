@@ -42,7 +42,7 @@ Several utilities for dealing with DOM events.
 
 ### debounce
 
-[src/debounce.ts:21-44](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/debounce.ts#L21-L44 "Source code on GitHub")
+[src/debounce.ts:21-44](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/debounce.ts#L21-L44 "Source code on GitHub")
 
 Decorate function `fn` with debounce delay `ms`.
 
@@ -63,7 +63,7 @@ cb(2)
 
 ### event
 
-[src/event.ts:23-33](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/event.ts#L23-L33 "Source code on GitHub")
+[src/event.ts:23-33](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/event.ts#L23-L33 "Source code on GitHub")
 
 Decorates event listener `fn`.
 
@@ -82,7 +82,7 @@ btn.onclick = event.stop.immediate(fn)
 
 ### on
 
-[src/on.ts:40-48](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/on.ts#L40-L48 "Source code on GitHub")
+[src/on.ts:40-48](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/on.ts#L40-L48 "Source code on GitHub")
 
 Adds a DOM event `listener` to an event `type` using `options` and returns its remover.
 
@@ -100,7 +100,7 @@ off() // remove listener
 
 ### off
 
-[src/on.ts:53-58](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/on.ts#L53-L58 "Source code on GitHub")
+[src/on.ts:53-58](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/on.ts#L53-L58 "Source code on GitHub")
 
 Removes an event `listener` of type `type` from `el` using `options`.
 
@@ -113,7 +113,7 @@ Removes an event `listener` of type `type` from `el` using `options`.
 
 ### queue
 
-[src/queue.ts:35-57](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/queue.ts#L35-L57 "Source code on GitHub")
+[src/queue.ts:38-60](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/queue.ts#L38-L60 "Source code on GitHub")
 
 Queue.
 
@@ -121,7 +121,7 @@ All queue functions are also throttled to once per invocation.
 
 #### raf
 
-[src/queue.ts:42-42](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/queue.ts#L42-L42 "Source code on GitHub")
+[src/queue.ts:45-45](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/queue.ts#L45-L45 "Source code on GitHub")
 
 Decorate function with `requestAnimationFrame`.
 
@@ -131,7 +131,7 @@ queue.raf(cb)
 
 #### time
 
-[src/queue.ts:49-49](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/queue.ts#L49-L49 "Source code on GitHub")
+[src/queue.ts:52-52](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/queue.ts#L52-L52 "Source code on GitHub")
 
 Decorate function with `setTimeout`.
 
@@ -141,7 +141,7 @@ queue.time(cb)
 
 #### task
 
-[src/queue.ts:56-56](https://github.com/stagas/fluent-event/blob/57c3cf56e99688a4c8cfe711b016e9e1fac6af30/src/queue.ts#L56-L56 "Source code on GitHub")
+[src/queue.ts:59-59](https://github.com/stagas/fluent-event/blob/b381a3c6ece1752b8fd6589cb0a1b566b1055169/src/queue.ts#L59-L59 "Source code on GitHub")
 
 Decorate function with `queueMicrotask`.
 

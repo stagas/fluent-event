@@ -3,26 +3,29 @@ import type { Fn } from './types'
 const q =
   (queueFn: Fn<[Fn<any[], any>], any>) =>
   <P extends any[]>(fn: Fn<P, any>): Fn<P, void> => {
+    let self: any
     let args: P | null
-    let after: P | null
-    const cb = function (this: any) {
-      // and if there are more calls, schedule early
-      if (after) queueFn(cb)
+    let next: P | null
+    const cb = () => {
+      // schedule early when more calls
+      if (next) queueFn(cb)
 
-      // callback runs with first args
-      fn.apply(this, args!)
+      fn.apply(self, args!)
 
-      args = after ?? null
-      after = null
+      // pass next args when more calls
+      args = next ?? null
+      next = null
     }
     return function (this: any, ...newArgs: P) {
+      self = this
+
       // initial call gets first args
       if (!args) {
         queueFn(cb)
         args = newArgs
       } else {
-        // later calls get latest args
-        after = newArgs
+        // next calls latest args win
+        next = newArgs
       }
     }
   }

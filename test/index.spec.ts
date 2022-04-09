@@ -5,7 +5,7 @@ describe('all', () => {
     it('decorates listener', () => {
       let count = 0
       const btn = document.createElement('button')
-      btn.onclick = event(() => count++)
+      btn.onclick = event()(() => count++)
       btn.click()
       expect(count).toEqual(1)
     })
@@ -22,7 +22,7 @@ describe('all', () => {
           stop++
         },
       } as Event
-      event.prevent(() => count++).call(this as any, mock)
+      event().prevent(() => count++).call(this as any, mock)
       expect(count).toEqual(1)
       expect(prevent).toEqual(1)
       expect(stop).toEqual(0)
@@ -40,7 +40,7 @@ describe('all', () => {
           stop++
         },
       } as Event
-      event.stop(() => count++).call(this as any, mock)
+      event().stop(() => count++).call(this as any, mock)
       expect(count).toEqual(1)
       expect(prevent).toEqual(0)
       expect(stop).toEqual(1)
@@ -58,7 +58,7 @@ describe('all', () => {
           stop++
         },
       } as Event
-      event.stop.immediate(() => count++).call(this as any, mock)
+      event().stop.immediate(() => count++).call(this as any, mock)
       expect(count).toEqual(1)
       expect(prevent).toEqual(0)
       expect(stop).toEqual(1)
@@ -76,7 +76,7 @@ describe('all', () => {
           stop++
         },
       } as Event
-      event.prevent.stop(() => count++).call(this as any, mock)
+      event().prevent.stop(() => count++).call(this as any, mock)
       expect(count).toEqual(1)
       expect(prevent).toEqual(1)
       expect(stop).toEqual(1)
@@ -159,7 +159,7 @@ describe('all', () => {
       let count = 0
       const btn = document.createElement('button')
       const cb = () => count++
-      const off = on(btn, 'click', cb)
+      const off = on()(btn, 'click', cb)
       expect(count).toBe(0)
       btn.click()
       expect(count).toBe(1)
@@ -174,7 +174,7 @@ describe('all', () => {
       let count = 0
       const btn = document.createElement('button')
       const cb = () => count++
-      on.once(btn, 'click', cb)
+      on().once(btn, 'click', cb)
       expect(count).toBe(0)
       btn.click()
       expect(count).toBe(1)
@@ -186,7 +186,7 @@ describe('all', () => {
   describe('debounce', () => {
     it('debounces fn', async () => {
       let count = 0
-      const cb = debounce(() => count++, 5)
+      const cb = debounce()(() => count++, 5)
       cb()
       cb()
       cb()
@@ -197,7 +197,7 @@ describe('all', () => {
 
     it('debounces first run', async () => {
       let count = 0
-      const cb = debounce.first(() => count++, 5)
+      const cb = debounce().first(() => count++, 5)
       cb()
       cb()
       cb()
@@ -210,7 +210,7 @@ describe('all', () => {
 
     it('passes arguments first', async () => {
       let count = 0
-      const cb = debounce.first((x: number) => (count += x), 5)
+      const cb = debounce().first((x: number) => (count += x), 5)
       cb(2)
       cb(2)
       cb(2)
@@ -223,7 +223,7 @@ describe('all', () => {
 
     it('passes arguments last win', async () => {
       let count = 0
-      const cb = debounce((x: number) => (count += x), 5)
+      const cb = debounce()((x: number) => (count += x), 5)
       cb(2)
       cb(2)
       cb(3)

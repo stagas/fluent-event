@@ -5,6 +5,7 @@ import type { Fn } from './types'
  * Decorate function `fn` with debounce delay `ms`.
  *
  * Flags: `first` => run `fn` first, then debounce
+ *
  * ```ts
  * fn = (x: number) => console.log(x)
  * // => runs `fn` after 100ms following last call

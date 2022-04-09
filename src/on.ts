@@ -32,7 +32,7 @@ function onEvent<T extends HTMLElement, K extends keyof HTMLElementEventMap>(
  * on().once(btn, 'click', fn)
  * on().passive(div, 'wheel', fn)
  *
- * const off = on.passive.capture(btn, 'wheel', fn)
+ * const off = on().passive.capture(btn, 'wheel', fn)
  * // ...later...
  * off() // remove listener
  * ```

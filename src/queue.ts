@@ -1,7 +1,6 @@
 import type { Fn } from './types'
 
-const q =
-  (queueFn: Fn<[Fn<any[], any>], any>) =>
+const q = (queueFn: Fn<[Fn<any[], any>], any>) =>
   <P extends any[]>(fn: Fn<P, any>): Fn<P, void> => {
     let self: any
     let args: P | null
@@ -16,7 +15,7 @@ const q =
       args = next ?? null
       next = null
     }
-    return function (this: any, ...newArgs: P) {
+    return function(this: any, ...newArgs: P) {
       self = this
 
       // initial call gets first args
@@ -34,27 +33,41 @@ const q =
  * Queue.
  *
  * All queue functions are also throttled to once per invocation.
+ *
+ * ```ts
+ * // decorate function with `requestAnimationFrame`
+ * const cbWithRaf = queue().raf(cb)
+ *
+ * // decorate function with `setTimeout`
+ * const cbWithTimeout = queue().time(cb)
+ *
+ * // decorate function with `queueMicrotask`
+ * const cbWithMicrotask = queue().task(cb)
+ * ```
  */
-export const queue = {
+export const queue = () => ({
   /**
    * Decorate function with `requestAnimationFrame`.
+   *
    * ```ts
-   * queue.raf(cb)
+   * const cbWithRaf = queue.raf(cb)
    * ```
    */
   raf: q(requestAnimationFrame),
   /**
    * Decorate function with `setTimeout`.
+   *
    * ```ts
-   * queue.time(cb)
+   * const cbWithTimeout = queue.time(cb)
    * ```
    */
   time: q(setTimeout),
   /**
    * Decorate function with `queueMicrotask`.
+   *
    * ```ts
-   * queue.task(cb)
+   * const cbWithMicrotask = queue.task(cb)
    * ```
    */
   task: q(queueMicrotask),
-}
+})

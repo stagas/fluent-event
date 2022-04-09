@@ -86,7 +86,7 @@ describe('all', () => {
   describe('queue(fn)', () => {
     it('decorates function', async () => {
       let count = 0
-      const cb = queue.task(() => count++)
+      const cb = queue().task(() => count++)
       cb()
       expect(count).toEqual(0)
       await Promise.resolve()
@@ -95,7 +95,7 @@ describe('all', () => {
 
     it('raf', async () => {
       let count = 0
-      const cb = queue.raf(() => count++)
+      const cb = queue().raf(() => count++)
       cb()
       expect(count).toEqual(0)
       await new Promise(resolve => requestAnimationFrame(resolve))
@@ -104,7 +104,7 @@ describe('all', () => {
 
     it('raf multiple times', async () => {
       let count = 0
-      const cb = queue.raf(() => count++)
+      const cb = queue().raf(() => count++)
       cb()
       cb()
       cb()
@@ -124,7 +124,7 @@ describe('all', () => {
 
     it('raf last first and last args win', async () => {
       let value: any
-      const cb = queue.raf(x => {
+      const cb = queue().raf(x => {
         value = x
       })
       cb(1)
@@ -146,7 +146,7 @@ describe('all', () => {
 
     it('time', async () => {
       let count = 0
-      const cb = queue.time(() => count++)
+      const cb = queue().time(() => count++)
       cb()
       expect(count).toEqual(0)
       await new Promise(resolve => setTimeout(resolve))

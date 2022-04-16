@@ -1,5 +1,5 @@
 <h1>
-fluent-event <a href="https://npmjs.org/package/fluent-event"><img src="https://img.shields.io/badge/npm-v2.0.0-F00.svg?colorA=000"/></a> <a href="src"><img src="https://img.shields.io/badge/loc-111-FFF.svg?colorA=000"/></a> <a href="https://cdn.jsdelivr.net/npm/fluent-event@2.0.0/dist/fluent-event.min.js"><img src="https://img.shields.io/badge/brotli-459b-333.svg?colorA=000"/></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-F0B.svg?colorA=000"/></a>
+fluent-event <a href="https://npmjs.org/package/fluent-event"><img src="https://img.shields.io/badge/npm-v2.0.1-F00.svg?colorA=000"/></a> <a href="src"><img src="https://img.shields.io/badge/loc-111-FFF.svg?colorA=000"/></a> <a href="https://cdn.jsdelivr.net/npm/fluent-event@2.0.1/dist/fluent-event.min.js"><img src="https://img.shields.io/badge/brotli-459b-333.svg?colorA=000"/></a> <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-F0B.svg?colorA=000"/></a>
 </h1>
 
 <p></p>
